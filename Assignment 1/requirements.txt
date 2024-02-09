@@ -1,0 +1,9 @@
+pillow==10.2.0
+six==1.16.0
+tensorboard==2.15.1
+argparse==1.4.0
+
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==2.2.0+cu121
+torchaudio==2.2.0+cu121
+torchvision==0.1.6

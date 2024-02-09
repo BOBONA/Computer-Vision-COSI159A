@@ -8,12 +8,9 @@ from torchvision.transforms import ToTensor
 
 from models import BasicMNISTModel
 from training import train, test
+import args
 
 device = 'cuda' if cuda.is_available() else 'cpu'
-
-epochs = 10
-lr = 0.01
-batch_size = 32
 
 
 def main():
@@ -22,15 +19,17 @@ def main():
     train_dataset = MNIST(root='./data', train=True, download=True, transform=ToTensor())
     test_dataset = MNIST(root='./data', train=False, download=True, transform=ToTensor())
 
-    train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
+    train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
+    test_dataloader = DataLoader(test_dataset, batch_size=args.batch_size, shuffle=True)
 
+    print("Training on", device)
     model = BasicMNISTModel().to(device)
-    model.load_state_dict(torch.load('mnist.pth'))
+    if args.load_model:
+        model.load_state_dict(torch.load(args.model_path))
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = Adam(model.parameters(), lr)
+    optimizer = Adam(model.parameters(), args.lr)
 
-    for epoch in range(epochs):
+    for epoch in range(args.epochs):
         print("Epoch", epoch)
 
         train(train_dataloader, model, loss_fn, optimizer)
@@ -38,7 +37,7 @@ def main():
 
         writer.add_scalar('Loss', loss, epoch)
         writer.add_scalar('Accuracy', avg_correct, epoch)
-        torch.save(model.state_dict(), 'mnist.pth')
+        torch.save(model.state_dict(), args.model_path)
 
     writer.close()
 
