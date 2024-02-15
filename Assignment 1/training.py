@@ -19,7 +19,7 @@ def train(dataloader: DataLoader, model: Module, loss_fn: Module, optimizer: Opt
         optimizer.zero_grad()
 
 
-def test(dataloader: DataLoader, model: Module, loss_fn: Module, epoch: int) -> tuple[float, float]:
+def test(dataloader: DataLoader, model: Module, loss_fn: Module) -> tuple[float, float]:
     model.eval()
     test_loss = 0
     correct = 0
