@@ -1,15 +1,15 @@
 import argparse
 
 parser = argparse.ArgumentParser(prog="MNIST Training")
-parser.add_argument('--epochs', type=int, default=10,
+parser.add_argument('--epochs', type=int, default=128,
                     help="Number of epochs to train for")
-parser.add_argument('--lr', type=float, default=0.002,
+parser.add_argument('--lr', type=float, default=0.001,
                     help="Learning rate for the optimizer")
-parser.add_argument('--batch-size', type=int, default=64,
+parser.add_argument('--batch-size', type=int, default=128,
                     help="Batch size for the dataloader")
-parser.add_argument('--load-model', type=bool, default=True,
+parser.add_argument('--load-model', type=bool, default=False,
                     help="Load the model from the model-path")
-parser.add_argument('--model-path', type=str, default="mnist.pth",
+parser.add_argument('--model-path', type=str, default="model.pth",
                     help="Path to save the model")
 args = parser.parse_args()
 

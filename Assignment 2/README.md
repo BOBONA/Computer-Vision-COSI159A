@@ -1,6 +1,6 @@
 # Assignment 2
 
-This assignment explores the effect of the angular loss used in the SphereFace model. The code allows for basic training and testing. PyTorch is used for machine learning and Tensorboard is used for visualization.
+This assignment explores the effect of the angular loss used in the SphereFace model. The code allows for basic training and testing. PyTorch is used for machine learning and Tensorboard is used for visualization. The default parameters achieve a testing accuracy of 74% after 128 epochs.
 
 ## Installation
 

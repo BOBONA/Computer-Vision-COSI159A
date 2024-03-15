@@ -22,10 +22,6 @@ class AngularPenaltySMLoss(Module):
         Input shape (N, in_features)
         """
 
-        for _, module in self.fc.named_modules():
-            if isinstance(module, Linear):
-                module.weight.data = normalize(module.weight, p=2, dim=1)
-
         x = normalize(x, p=2, dim=1)
 
         wf = self.fc(x)
@@ -56,6 +52,7 @@ class Sphereface4Layer(Module):
         x = x.view(-1, 512 * 5 * 5)
         x = self.fc(x)
 
+        # only return the loss if a label is provided
         if y is not None:
             ang = self.ang(x, y)
             return x, ang

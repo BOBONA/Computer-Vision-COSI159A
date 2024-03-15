@@ -3,7 +3,6 @@ from torch import cuda
 from torch.nn import Module, CosineSimilarity
 from torch.optim import Optimizer
 from torch.utils.data import DataLoader
-from torch.utils.tensorboard import SummaryWriter
 
 device = 'cuda' if cuda.is_available() else 'cpu'
 
@@ -11,14 +10,15 @@ device = 'cuda' if cuda.is_available() else 'cpu'
 def train(dataloader: DataLoader, model: Module, optimizer: Optimizer) -> float:
     model.train()
     total_loss = 0
-    for batch, (x, y) in enumerate(dataloader):
+    for x, y in dataloader:
         x, y = x.to(device), y.to(device)
-        features, loss = model(x, y)
 
-        total_loss += loss.item() / dataloader.batch_size
+        optimizer.zero_grad()
+        _, loss = model(x, y)
         loss.backward()
         optimizer.step()
-        optimizer.zero_grad()
+
+        total_loss += loss.item() / len(dataloader)
     return total_loss
 
 
