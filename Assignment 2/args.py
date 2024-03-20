@@ -1,6 +1,6 @@
 import argparse
 
-parser = argparse.ArgumentParser(prog="MNIST Training")
+parser = argparse.ArgumentParser(prog="SphereFace Training")
 parser.add_argument('--epochs', type=int, default=128,
                     help="Number of epochs to train for")
 parser.add_argument('--lr', type=float, default=0.001,
