@@ -5,6 +5,16 @@ The code allows for running SLIC segmentation on an image using either my own im
 significantly faster (as it is written in Cython). However, I wrote my code for readability and I think it is easier to understand than any other
 implementations you'll find online.
 
+## Examples
+
+Note that Scikit's implementation appears to treat the compactness parameter and cluster count differently than my implementation.
+
+|              Input              |                           My SLIC                           |                           Scikit                           |
+|:-------------------------------:|:-----------------------------------------------------------:|:----------------------------------------------------------:|
+| ![Example 1](data/example1.jpg) | ![My SLIC 1](data/segmented_myslic_250_20_example1.jpg.png) | ![Scikit 1](data/segmented_scikit_250_20_example1.jpg.png) |
+| ![Example 2](data/example2.jpg) | ![My SLIC 2](data/segmented_myslic_250_20_example2.jpg.png) | ![Scikit 2](data/segmented_scikit_250_20_example2.jpg.png) |
+
+
 ## Usage
 
 ```bash
@@ -39,7 +49,3 @@ python main.py [--image IMAGE] [--output OUTPUT] [--algorithm ALGORITHM]
     ```
     python script.py --output output/result.jpg
     ```
-
-### Notes
-
-- Scikit's implementation appears to treat the compactness parameter differently.
