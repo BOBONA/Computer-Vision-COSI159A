@@ -13,7 +13,7 @@ if __name__ == '__main__':
     image = imread(image_path)
 
     segments = slic(image, n_segments=args.clusters, max_num_iter=args.iterations,
-                    enforce_connectivity=args.connected) if args.algorithm == 'scikit' \
+                    enforce_connectivity=args.connected, start_label=0) if args.algorithm == 'scikit' \
         else my_slic(image, compactness=args.compactness, num_clusters=args.clusters,
                      num_iterations=args.iterations, connected_components=args.connected)
 
