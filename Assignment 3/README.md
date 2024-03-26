@@ -29,7 +29,7 @@ python main.py [--image IMAGE] [--output OUTPUT] [--algorithm ALGORITHM]
 - `--output` (str, default: ""): Path to save the output image. If not provided, the output will be saved in the same directory as the input image.
 - `--algorithm` (str, default: "myslic"): Specifies the algorithm to use; choose between "myslic" or "scikit".
 - `--clusters` (int, default: 250): Number of clusters to form.
-- `--compactness` (int, default: 20): SLIC compactness parameter.
+- `--compactness` (float, default: 20): SLIC compactness parameter.
 - `--iterations` (int, default: 10): Number of iterations to run.
 - `--connected` (bool, default: True): Whether to enforce connectivity of the segments.
 
