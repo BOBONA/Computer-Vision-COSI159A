@@ -56,3 +56,7 @@ python main.py [--image IMAGE] [--output OUTPUT] [--algorithm ALGORITHM]
     ```
     python script.py --output output/result.jpg
     ```
+
+## Report
+
+The assignment report is included in the repository as a [PDF file](submission.pdf) (and also includes some work on attention maps not relevant to this repo).
