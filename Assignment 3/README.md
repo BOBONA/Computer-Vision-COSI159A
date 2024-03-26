@@ -14,6 +14,13 @@ Note that Scikit's implementation appears to treat the compactness parameter and
 | ![Example 1](data/example1.jpg) | ![My SLIC 1](data/segmented_myslic_250_20_example1.jpg.png) | ![Scikit 1](data/segmented_scikit_250_20_example1.jpg.png) |
 | ![Example 2](data/example2.jpg) | ![My SLIC 2](data/segmented_myslic_250_20_example2.jpg.png) | ![Scikit 2](data/segmented_scikit_250_20_example2.jpg.png) |
 
+The original paper briefly mentions moving the centers to the lowest gradient position in a 3×3 neighborhood, but
+does not provide many details. It also mentions a "connected components" algorithm to enforce connectivity, and again does not provide much detail.
+Both of these are implemented in my code with explanation. Additionally, here is a comparison of the effect of these two techniques.
+
+|                     Basic                     |           Enforcing Connectivity            |       Enforcing Connectivity & Minimizing Gradients        |
+|:---------------------------------------------:|:-------------------------------------------:|:----------------------------------------------------------:|
+| ![Example 1](data/example2_no_techniques.png) | ![My SLIC 1](data/example2_no_gradient.png) | ![Scikit 1](data/segmented_myslic_250_20_example2.jpg.png) |
 
 ## Usage
 
